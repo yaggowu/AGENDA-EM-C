@@ -14,13 +14,5 @@ typedef struct
 // FUNÇÃO PRINCIPAL
 int main(void)
 {
-    Contato array[3];
-
-    printf("--------MENU-------");
-
-
-    strcpy(array[0].nome, "Henrique");
-    array[0].idade = 18;
-    printf("Hellor World!");
     return 0;
 }
