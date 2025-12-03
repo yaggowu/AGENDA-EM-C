@@ -70,11 +70,32 @@ void add_contato(char nome[], int idade, Contato *c)
     usados++;
     printf("Contato '%s' adicionado a lista de contatos!!\n", nome);
 
-    sleep(2);
+    sleep(2); // No Linux é segundos, Windows: milisegundos
 
     show_Contats(c);
 };
 
+void delete_Contact(char nome[], Contato *c)
+{
+    // Procura no array
+    for (int i = 0; i < usados; i++)
+    {
+        if (strcmp(c[i].nome, nome) == 0)
+        {
+
+            // Reorganizar array
+            for (int j = i + 1; j < usados; j++)
+            {
+                c[j - 1] = c[j];
+            }
+
+            usados--;
+            printf("'%s' foi excluido(a) da sua lista de contatos!!\n", nome);
+            sleep(2);
+            show_Contats(c);
+        }
+    }
+}
 // FUNÇÃO PRINCIPAL
 int main(void)
 {
@@ -128,6 +149,30 @@ int main(void)
 
             // Adiciona no array
             add_contato(nome, idade, c);
+            break;
+        case 3:
+            // Deletar
+            do
+            {
+                printf("----Exclusão de contatos-----\n");
+                printf("Nome do contato: ");
+                fgets(nome, 50, stdin);
+                nome[strcspn(nome, "\n")] = '\0'; // remove o \n
+
+                exist = contact_Exists(nome, c);
+
+                if (!exist)
+                {
+                    printf("Erro: Contato não existe!!\n");
+                    // system("clear"); // cls para windows
+                }
+
+            } while (exist == 0);
+
+            // Adiciona no array
+            delete_Contact(nome, c);
+            break;
+            break;
         default:
             break;
         }
