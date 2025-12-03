@@ -91,11 +91,12 @@ void delete_Contact(char nome[], Contato *c)
 
             usados--;
             printf("'%s' foi excluido(a) da sua lista de contatos!!\n", nome);
-            sleep(2);
+            sleep(2); // No Linux é segundos, Windows: milisegundos
             show_Contats(c);
         }
     }
 }
+
 // FUNÇÃO PRINCIPAL
 int main(void)
 {
