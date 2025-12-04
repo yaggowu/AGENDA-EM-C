@@ -8,7 +8,8 @@
 #include <string.h> //Biblioteca de string
 #include "main.h"   //Incluo o struct Contato que criei em outro arquivo
 
-#include <ctype.h> // Necessário para isalpha() e isdigit()
+#include <ctype.h>   // Necessário para isalpha() e isdigit()
+#include <stdbool.h> //Permite tipos booleano
 
 #define QTY 10 // Quantidade de contatos possíveis
 int used = 1;  // Defino uma variavél global para saber a quantidade de posicoes do meu array Contatos
@@ -140,12 +141,13 @@ int validate_Phone(char *phone)
 // FUNÇÃO PRINCIPAL
 int main(void)
 {
-    int opc = 0, exist;
-    int ok = 0;
+    Contato c[QTY] = {{"Ana Clara", "19"}};
     char name[50];
     char phone[15];
-    Contato c[QTY] = {{"Ana Clara", "19"}};
+    int opc = 0, exist;
+    bool ok = false;
 
+    // Looping principal
     while (opc != 5)
     {
         do
@@ -168,15 +170,29 @@ int main(void)
             show_Contats(c);
             break;
         case 2:
-            break;
+            break; // Adicionar funcionalidade de busca
         case 3:
             // Repete até o usuário digitar um contato que não existe
             do
             {
-                printf("----Inclusão de contatos-----\n");
-                printf("Nome do novo contato: ");
-                fgets(name, sizeof(name), stdin);
-                name[strcspn(name, "\n")] = '\0'; // remove o \n
+
+                do
+                {
+                    printf("----Inclusão de contatos-----\n");
+                    printf("Nome do novo contato: ");
+                    fgets(name, sizeof(name), stdin);
+                    name[strcspn(name, "\n")] = '\0'; // remove o \n
+
+                    if (validate_Name(name))
+
+                        ok = true;
+                    else if (!validate_Name(name))
+                    {
+                        printf("Nome inválido!\n");
+                        ok = false;
+                    }
+
+                } while (ok != true);
 
                 exist = contact_Exists(name, c);
                 if (exist)
@@ -185,20 +201,22 @@ int main(void)
                     // system("clear"); // cls para windows
                 }
 
-            } while (exist == 1);
+            } while (exist != 0); // Enquanto oque ele digitar ja estiver no array
 
-            while (ok != 1)
+            ok = false;
+            while (ok != true)
             {
-
                 printf("Digite o Telefone: ");
                 fgets(phone, sizeof(phone), stdin);
                 phone[strcspn(phone, "\n")] = '\0'; // remove o \n
 
                 if (validate_Phone(phone))
+                    ok = true;
+                else if (!validate_Phone(phone))
                 {
-                    ok = 1;
+                    printf("Número de telefone inválido!!\n");
+                    ok = false;
                 }
-                printf("Número de telefone inválido!!\n");
             }
 
             // Adiciona no array
