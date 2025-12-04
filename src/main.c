@@ -22,14 +22,13 @@ void runApp()
         {"Ana Clara", "47996235"},
         {"Carlos Eduardo", "47996235"},
         {"Alexandre", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Ana Clara", "47996235"},
-        {"Clara Ana", "47996235"},
-
+        {"Jeferson Rodrigues", "47996235"},
+        {"Eduardo Padilha", "47996235"},
+        {"Juliana Chagas", "47996235"},
+        {"Lucas Rodrigo", "47996235"},
+        {"Luiz Felipe", "47996235"},
+        {"Henrique Santos", "47996235"},
+        {"Yago manjarola", "47996235"},
     };
     char name[50], phone[15];
     int opc;
