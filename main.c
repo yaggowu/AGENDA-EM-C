@@ -20,26 +20,17 @@ int show_Menu()
     char temp[10]; // Buffer de texto
     int opc;
 
-    // printf(" ____________________MENU___________________ \n");
-    // printf("|                                             |\n");
-    // printf("|1 - CONSULTAR CONTATOS");
-    // printf(" |3 - EXCLUIR CONTATOS |\n");
-    // printf("|2 - INCLUIR CONTATOS");
-    // printf("\t|4 - SAIR\t      |\n");
+    printf("=========================================\n");
+    printf("         AGENDA  DE  CONTATO             \n");
+    printf("=========================================\n");
+    printf("   [1]  Listar contatos\n");
+    printf("   [2]  Pesquisar contato\n");
+    printf("   [3]  Adicionar contato\n");
+    printf("   [4]  Excluir contato\n");
+    printf("   [5]  Sair\n");
+    printf("-----------------------------------------\n");
+    printf("   Escolha uma opção: ");
 
-    printf("|-----------------------------------------------------|\n");
-    printf("|                  AGENDA DE CONTATO                  |\n");
-    printf("|-----------------------------------------------------|\n");
-    printf("| 1 |                   LISTAR                        |\n");
-    printf("| 2 |                  PESQUISAR                      |\n");
-    printf("| 3 |                  ADICIONAR                      |\n");
-    printf("| 4 |                   EXCLUIR                       |\n");
-    printf("| 5 |                    SAIR                         |\n");
-    printf("|-----------------------------------------------------|\n");
-    printf("|              DIGITE O NUMERO DESEJADO               |\n");
-    printf("|-----------------------------------------------------|\n");
-
-    printf("\nOpcao: ");
     fgets(temp, 10, stdin);
     opc = atoi(temp);
 
@@ -71,7 +62,7 @@ int contact_Exists(char name[], Contato *c)
     return 0; // False
 }
 // Adiciona no array
-void add_Contacts(char name[], char phone[], Contato *c)
+void add_Contact(char name[], char phone[], Contato *c)
 {
 
     strcpy(c[used].name, name);
@@ -141,7 +132,7 @@ int validate_Phone(char *phone)
 // FUNÇÃO PRINCIPAL
 int main(void)
 {
-    Contato c[QTY] = {{"Ana Clara", "19"}};
+    Contato c[QTY] = {{"Ana Clara", "47996235"}};
     char name[50];
     char phone[15];
     int opc = 0, exist;
@@ -175,8 +166,7 @@ int main(void)
             // Repete até o usuário digitar um contato que não existe
             do
             {
-
-                do
+                do // Repete até ele digitar um nome válido
                 {
                     printf("----Inclusão de contatos-----\n");
                     printf("Nome do novo contato: ");
@@ -194,6 +184,10 @@ int main(void)
 
                 } while (ok != true);
 
+                // Quando valida nome reseta a varivel ok
+                if (ok)
+                    ok = false;
+
                 exist = contact_Exists(name, c);
                 if (exist)
                 {
@@ -203,8 +197,7 @@ int main(void)
 
             } while (exist != 0); // Enquanto oque ele digitar ja estiver no array
 
-            ok = false;
-            while (ok != true)
+            while (ok != true) // Repete até ele digitar um numero válido
             {
                 printf("Digite o Telefone: ");
                 fgets(phone, sizeof(phone), stdin);
@@ -214,13 +207,15 @@ int main(void)
                     ok = true;
                 else if (!validate_Phone(phone))
                 {
+                    system("clear"); // cls no windows
                     printf("Número de telefone inválido!!\n");
+                    printf("Número tem que ter mais de 8 digitos!!\n");
                     ok = false;
                 }
             }
 
             // Adiciona no array
-            add_Contacts(name, phone, c);
+            add_Contact(name, phone, c);
             break;
         case 4:
             // Deletar
@@ -251,7 +246,7 @@ int main(void)
         if (opc == 5)
         {
             system("clear");
-            return printf("Até mais!\n");
+            return printf("Até logo!\n");
         }
     }
 
