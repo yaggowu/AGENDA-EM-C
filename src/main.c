@@ -25,7 +25,9 @@ void runApp()
         case 1:
             show_Contacts(contatos);
             break;
-
+        case 2:
+            // Lógica de pesquisar
+            break;
         case 3:
             // Repete até o usuário digitar um contato que não existe
             do
