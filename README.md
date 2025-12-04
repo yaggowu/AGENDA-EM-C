@@ -2,6 +2,16 @@
 
 Este projeto consiste no desenvolvimento de um programa em **Linguagem C ANSI** para gerenciar uma **agenda de contatos**, permitindo armazenar nome e telefone, além de consultar e excluir registros.
 
+# 🧑‍🤝‍🧑 Participantes do Grupo
+
+Projeto desenvolvido por:
+
+- Henrique Santos Silva
+- Yuri
+- Yago
+- Gabriel
+- Emanoel
+
 ## 🖥️ Como compilar e executar
 
 ### Linux / macOS
