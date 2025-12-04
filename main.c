@@ -26,17 +26,17 @@ int show_Menu()
     // printf("|2 - INCLUIR CONTATOS");
     // printf("\t|4 - SAIR\t      |\n");
 
-    printf("|-------------------------------------------------------|\n");
-    printf("|                    AGENDA DE CONTATO                  |\n");
-    printf("|-------------------------------------------------------|\n");
-    printf("| 1 |                     LISTAR                        |\n");
-    printf("| 2 |                    PESQUISAR                      |\n");
-    printf("| 3 |                    ADICIONAR                      |\n");
-    printf("| 4 |                     EXCLUIR                       |\n");
-    printf("| 5 |                      SAIR                         |\n");
-    printf("|-------------------------------------------------------|\n");
-    printf("|                DIGITE O NUMERO DESEJADO               |\n");
-    printf("|-------------------------------------------------------|\n");
+    printf("|-----------------------------------------------------|\n");
+    printf("|                  AGENDA DE CONTATO                  |\n");
+    printf("|-----------------------------------------------------|\n");
+    printf("| 1 |                   LISTAR                        |\n");
+    printf("| 2 |                  PESQUISAR                      |\n");
+    printf("| 3 |                  ADICIONAR                      |\n");
+    printf("| 4 |                   EXCLUIR                       |\n");
+    printf("| 5 |                    SAIR                         |\n");
+    printf("|-----------------------------------------------------|\n");
+    printf("|              DIGITE O NUMERO DESEJADO               |\n");
+    printf("|-----------------------------------------------------|\n");
 
     printf("\nOpcao: ");
     fgets(temp, 10, stdin);
@@ -44,7 +44,6 @@ int show_Menu()
 
     return opc;
 }
-
 // Mostrar lista de Contatos
 void show_Contats(Contato *c)
 {
@@ -58,7 +57,6 @@ void show_Contats(Contato *c)
         printf("Telefone: %s\n", c[i].phone);
     }
 }
-
 // Função que verifica se contato ja existe no array
 int contact_Exists(char name[], Contato *c)
 {
@@ -71,7 +69,7 @@ int contact_Exists(char name[], Contato *c)
     }
     return 0; // False
 }
-// FUNCÃO ADICIONAR CONTATO
+// Adiciona no array
 void add_Contacts(char name[], char phone[], Contato *c)
 {
 
@@ -85,7 +83,7 @@ void add_Contacts(char name[], char phone[], Contato *c)
 
     show_Contats(c);
 };
-
+// Deleta no array e organiza
 void delete_Contact(char name[], Contato *c)
 {
     // Procura no array
@@ -108,7 +106,7 @@ void delete_Contact(char name[], Contato *c)
         }
     }
 }
-
+// Valida digitos do nome
 int validate_Name(char *name)
 {
     if (strlen(name) == 0 || strlen(name) >= 50)
@@ -123,7 +121,7 @@ int validate_Name(char *name)
     }
     return 1;
 }
-
+// Valida digitos do telefone
 int validate_Phone(char *phone)
 {
     if (strlen(phone) < 8 || strlen(phone) >= 15)
@@ -197,7 +195,10 @@ int main(void)
                 phone[strcspn(phone, "\n")] = '\0'; // remove o \n
 
                 if (validate_Phone(phone))
+                {
                     ok = 1;
+                }
+                printf("Número de telefone inválido!!\n");
             }
 
             // Adiciona no array
