@@ -4,7 +4,7 @@
 #include <unistd.h> // #include <windows.h> //No windows
 #include <stdlib.h>
 #include "main.h"
-int used = 1;
+int used = 10;
 
 // Mostrar lista de Contatos
 void show_Contacts(Contato *c)
@@ -46,7 +46,7 @@ void add_Contact(char name[], char phone[], Contato *c)
 
     used++;
     printf("|=============================================|\n");
-    printf("   '%s' ADICIONADO À LISTA DE CONTATOS!        \n", name);
+    printf(" '%s' ADICIONADO(A) À LISTA DE CONTATOS!   \n", name);
     printf("|=============================================|\n\n");
 
     blink_loading();

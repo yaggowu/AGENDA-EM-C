@@ -18,7 +18,19 @@
 
 void runApp()
 {
-    Contato contatos[QTY] = {{"Ana Clara", "47996235"}};
+    Contato contatos[QTY] = {
+        {"Ana Clara", "47996235"},
+        {"Carlos Eduardo", "47996235"},
+        {"Alexandre", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Ana Clara", "47996235"},
+        {"Clara Ana", "47996235"},
+
+    };
     char name[50], phone[15];
     int opc;
     bool ok;
@@ -55,7 +67,10 @@ void runApp()
 
         default:
             system("clear");
-            printf("Opção inválida!\n");
+
+            printf("|=============================================|\n");
+            printf("|               OPÇÃO INVÁLIDA!!              |\n");
+            printf("|=============================================|\n\n");
         }
     }
 }
