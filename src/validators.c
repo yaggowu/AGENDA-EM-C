@@ -1,6 +1,6 @@
 #include "../include/validators.h"
 #include <string.h>
-#include <ctype.h>
+#include <ctype.h> // Necessário para isalpha() e isdigit()
 
 // Valida digitos do nome
 int validate_Name(char *name)

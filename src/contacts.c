@@ -1,7 +1,7 @@
 #include "../include/contacts.h"
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
+#include <unistd.h> // #include <windows.h> //No windows
 #include <stdlib.h>
 
 int used = 1;
