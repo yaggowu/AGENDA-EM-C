@@ -33,7 +33,7 @@ void add_Contact_Logic(Contato *contatos)
                 ok = true;
             else if (!validate_Name(name))
             {
-                system("clear"); // cls no windows
+                system("cls"); // cls no windows
                 printf("|=============================================|\n");
                 printf("|               NOME INVALIDO!!               |\n");
                 printf("|=============================================|\n\n");
@@ -49,11 +49,11 @@ void add_Contact_Logic(Contato *contatos)
         exist = contact_Exists(name, contatos);
         if (exist)
         {
-            system("clear"); // cls no windows
+            system("cls"); // cls no windows
             printf("|=============================================|\n");
             printf("|         ERRO: CONTATO JA EXISTE!            |\n");
             printf("|=============================================|\n\n");
-            // system("clear"); // cls para windows
+            // system("cls"); // cls para windows
         }
 
     } while (exist != 0); // Enquanto oque ele digitar ja estiver no array
@@ -68,7 +68,7 @@ void add_Contact_Logic(Contato *contatos)
             ok = true;
         else if (!validate_Phone(phone))
         {
-            system("clear"); // cls no windows
+            system("cls"); // cls no windows
             printf("|=============================================|\n");
             printf("|           ERRO: NUMERO INVALIDO             |\n");
             printf("|=============================================|\n\n");

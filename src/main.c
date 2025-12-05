@@ -18,18 +18,7 @@
 
 void runApp()
 {
-    Contato contatos[QTY] = {
-        {"Ana Clara", "47996235"},
-        {"Carlos Eduardo", "47996235"},
-        {"Alexandre", "47996235"},
-        {"Jeferson Rodrigues", "47996235"},
-        {"Eduardo Padilha", "47996239"},
-        {"Juliana Chagas", "47944231"},
-        {"Lucas Rodrigo", "47923235"},
-        {"Luiz Felipe", "47996235"},
-        {"Henrique Santos", "47996235"},
-        {"Yago manjarola", "47996235"},
-    };
+    Contato contatos[QTY];
     char name[50], phone[15];
     int opc;
     bool ok;
@@ -41,34 +30,41 @@ void runApp()
         switch (opc)
         {
         case 1:
-            system("clear"); // cls para windows
+            system("cls"); // cls para windows
             show_Contacts(contatos);
             break;
         case 2:
-            system("clear");
-            // Adicionar Lógica de pesquisar
+            system("cls");
+            printf("|=============================================|\n");
+            printf("|               DIGITE O CONTATO              |\n");
+            printf("|=============================================|\n\n");
+            fgets(name, sizeof(name), stdin);
+            name[strcspn(name, "\n")] = '\0'; // remove o \n
+
+            procurar_contato(name, contatos);
+
             break;
         case 3:
-            system("clear");
+            system("cls");
             add_Contact_Logic(contatos);
             break;
         case 4:
-            system("clear");
+            system("cls");
             delete_Contact_Logic(contatos);
             break;
 
         case 5:
-            system("clear");
-            printf("|===================|\n");
-            printf("|ATÉ LOGO!!         |\n");
-            printf("|===================|\n");
+            system("cls");
+            printf("|==========================|\n");
+            printf("|         ATE LOGO!!       |\n");
+            printf("|==========================|\n");
             return;
 
         default:
-            system("clear");
+            system("cls");
 
             printf("|=============================================|\n");
-            printf("|               OPÇÃO INVÁLIDA!!              |\n");
+            printf("|               OPCAO INVALIDA!!              |\n");
             printf("|=============================================|\n\n");
         }
     }

@@ -1,15 +1,16 @@
 #include "../include/contacts.h"
+#include "../include/menu.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h> // #include <windows.h> //No windows
 #include <stdlib.h>
 #include "main.h"
-int used = 10;
+int used = 0;
 
 // Mostrar lista de Contatos
 void show_Contacts(Contato *c)
 {
-    system("clear"); // cls para windows
+    system("cls"); // cls para windows
 
     printf("|=============================================|\n");
     printf("|              LISTA DE CONTATOS              |\n");
@@ -69,12 +70,39 @@ void delete_Contact(char name[], Contato *c)
             }
 
             used--;
-            system("clear"); // cls para windows
+            system("cls"); // cls para windows
             printf("|=============================================|\n");
             printf("'%s' FOI EXCLUIDO(A) DA LISTA DE CONTATOS! \n", name);
             printf("|=============================================|\n\n");
             blink_loading();
             show_Contacts(c);
+        }
+    }
+}
+
+void procurar_contato(char name[], Contato *c)
+{
+    for (int i = 0; i < used; i++)
+    {
+
+        if (strcmp(c[i].name, name) == 0)
+        {
+            system("cls");
+            printf("|=============================================|\n");
+            printf("|                CONTATO %i                   |\n", i + 1);
+            printf("|=============================================|\n\n");
+            printf("| Nome: %-38s|\n", c[i].name);
+            printf("| Telefone: %-34s|\n", c[i].phone);
+            show_Menu();
+            return;
+        }
+
+        else
+        {
+            system("cls");
+            printf("|=============================================|\n");
+            printf("|             CONTATO NAO ENCONTRADO          |\n");
+            printf("|=============================================|\n\n");
         }
     }
 }

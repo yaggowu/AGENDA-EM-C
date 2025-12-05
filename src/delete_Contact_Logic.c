@@ -23,7 +23,7 @@ void delete_Contact_Logic(Contato *contatos)
 
     do
     {
-        // system("clear"); // cls no Windows
+        // system("cls"); // cls no Windows
         printf("|=============================================|\n");
         printf("|               EXCLUIR CONTATO               |\n");
         printf("|=============================================|\n\n");
@@ -36,7 +36,7 @@ void delete_Contact_Logic(Contato *contatos)
 
         if (!exist)
         {
-            system("clear"); // cls no windows
+            system("cls"); // cls no windows
             printf("|=============================================|\n");
             printf("|        ERRO: CONTATO NAO ENCONTRADO         |\n");
             printf("|=============================================|\n\n");

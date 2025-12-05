@@ -20,7 +20,7 @@ int show_Menu()
     printf("|           DIGITE O NUMERO DESEJADO          |\n");
     printf("|=============================================|\n");
 
-    printf("|           :");
+    printf("|           : ");
     fgets(temp, 10, stdin);
     opc = atoi(temp);
 
